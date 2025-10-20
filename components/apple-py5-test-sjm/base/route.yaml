@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: apple-py5-test-sjm
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: apple-py5-test-sjm 
+  name: apple-py5-test-sjm
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: apple-py5-test-sjm
+    weight: 100 
